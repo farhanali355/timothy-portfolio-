@@ -1,24 +1,28 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Mobile App Development',
-    image: '/tim-portfolio-images/image1.jpg',
-    bgColor: '#E2E6EF' // Light Gray
+    title: 'Premium Bakery',
+    image: '/tim-portfolio-images/image1.png',
+    // bgColor: '#E2E6EF', // Light Gray
+    liveUrl: 'https://premium-bakery.vercel.app'
   },
   {
-    title: 'Web Application',
-    image: '/tim-portfolio-images/image2.png',
-    bgColor: '#C5FF41' // Lime Green
+    title: 'GoCart',
+    image: '/tim-portfolio-images/image23.png',
+    // bgColor: '#C5FF41', // Lime Green
+    liveUrl: 'https://gocart-gs.vercel.app/'
   },
   {
-    title: 'API Design & Integration',
-    image: '/tim-portfolio-images/image3.jpg',
-    bgColor: '#1A1A1A' // Dark Black
+    title: 'Gemini Clone',
+    image: '/tim-portfolio-images/image3.png',
+    // bgColor: '#1A1A1A', // Dark Black
+    liveUrl: 'https://gemini-clone-v0.netlify.app/'
   }
 ];
 
@@ -26,7 +30,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="portfolio-section">
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        
+
         {/* Split Header: Title on Left, Summary on Right */}
         <div className="portfolio-header-split">
           <h2 className="portfolio-title-big">My Portfolio</h2>
@@ -37,41 +41,56 @@ const Portfolio = () => {
 
         {/* 3-Column Custom Card Grid */}
         <div className="portfolio-grid-custom">
-          {projects.map((project, index) => (
-            <div key={index} className="portfolio-card-custom">
-              {/* Top Glass Category Section */}
-              <div className="card-top-glass">
-                <h3 className="project-category-title">{project.title}</h3>
-              </div>
+          {projects.map((project, index) => {
+            const cardContent = (
+              <div className="portfolio-card-custom">
+                {/* Top Glass Category Section */}
+                <div className="card-top-glass">
+                  <h3 className="project-category-title">{project.title}</h3>
+                </div>
 
-              {/* Unique 'Folder-Style' Curved Image Box */}
-              <div className="folder-wrapper">
-                <div className="folder-layers-group">
-                  {/* Secondary Layers Behind Folder For Stacked Look */}
-                  <div className="folder-sheets-bg"></div>
-                  
-                  <div 
-                    className="folder-image-box" 
-                    style={{ backgroundColor: project.bgColor }}
-                  >
-                    <div className="image-inner-wrap">
-                      <Image 
-                        src={project.image} 
-                        alt={project.title} 
-                        fill
-                        className="project-image-full"
-                      />
+                {/* Unique 'Folder-Style' Curved Image Box */}
+                <div className="folder-wrapper">
+                  <div className="folder-layers-group">
+                    {/* Extra Sheets Removed */}
+
+                    <div
+                      className="folder-image-box"
+                      style={{ backgroundColor: project.bgColor }}
+                    >
+                      <div className="image-inner-wrap" style={{ padding: 0 }}>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="project-image-full"
+                          style={{ objectFit: 'cover' }}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Circular Arrow Button (Positioned in Cutout Space) */}
-                <div className="arrow-circle-btn">
-                  <ArrowUpRight size={24} strokeWidth={2.5} />
+                  {/* Circular Arrow Button (Positioned in Cutout Space) */}
+                  <div className="arrow-circle-btn">
+                    <ArrowUpRight size={24} strokeWidth={2.5} />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+
+            return (
+              <a
+                key={index}
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="portfolio-item-link"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                {cardContent}
+              </a>
+            );
+          })}
         </div>
 
         {/* Pagination Dots at Bottom */}

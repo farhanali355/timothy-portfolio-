@@ -44,9 +44,9 @@ const Navbar = () => {
       {/* Desktop Navbar */}
       <nav className="pill-navbar desktop-nav">
         <ul className="nav-links-pills">
-          <li><Link href="#home" className={`nav-link-item ${activeLink === '#home' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#home')}>Home</Link></li>
-          <li><Link href="#about" className={`nav-link-item ${activeLink === '#about' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#about')}>About</Link></li>
-          <li><Link href="#portfolio" className={`nav-link-item ${activeLink === '#portfolio' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#portfolio')}>Portfolio</Link></li>
+          <li><Link href="/#home" className={`nav-link-item ${activeLink === '#home' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#home')}>Home</Link></li>
+          <li><Link href="/#about" className={`nav-link-item ${activeLink === '#about' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#about')}>About</Link></li>
+          <li><Link href="/#portfolio" className={`nav-link-item ${activeLink === '#portfolio' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#portfolio')}>Portfolio</Link></li>
         </ul>
         
         <div className="logo-center">
@@ -54,9 +54,9 @@ const Navbar = () => {
         </div>
 
         <ul className="nav-links-pills">
-          <li><Link href="#resume" className={`nav-link-item ${activeLink === '#resume' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#resume')}>Resume</Link></li>
-          <li><Link href="#project" className={`nav-link-item ${activeLink === '#project' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#project')}>Project</Link></li>
-          <li><Link href="#contact" className={`nav-link-item ${activeLink === '#contact' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#contact')}>Contact</Link></li>
+          <li><Link href="/#resume" className={`nav-link-item ${activeLink === '#resume' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#resume')}>Resume</Link></li>
+          <li><Link href="/#project" className={`nav-link-item ${activeLink === '#project' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#project')}>Project</Link></li>
+          <li><Link href="/#contact" className={`nav-link-item ${activeLink === '#contact' ? 'nav-link-active' : ''}`} onClick={() => handleLinkClick('#contact')}>Contact</Link></li>
         </ul>
       </nav>
 
@@ -86,12 +86,12 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       <div className={`mobile-menu-dropdown ${isMobileMenuOpen ? 'open' : ''}`}>
         <ul className="mobile-links-list">
-          <li><Link href="#home" className={`mobile-nav-link ${activeLink === '#home' ? 'active' : ''}`} onClick={() => handleLinkClick('#home')}>Home</Link></li>
-          <li><Link href="#about" className={`mobile-nav-link ${activeLink === '#about' ? 'active' : ''}`} onClick={() => handleLinkClick('#about')}>About</Link></li>
-          <li><Link href="#portfolio" className={`mobile-nav-link ${activeLink === '#portfolio' ? 'active' : ''}`} onClick={() => handleLinkClick('#portfolio')}>Portfolio</Link></li>
-          <li><Link href="#resume" className={`mobile-nav-link ${activeLink === '#resume' ? 'active' : ''}`} onClick={() => handleLinkClick('#resume')}>Resume</Link></li>
-          <li><Link href="#project" className={`mobile-nav-link ${activeLink === '#project' ? 'active' : ''}`} onClick={() => handleLinkClick('#project')}>Project</Link></li>
-          <li><Link href="#contact" className={`mobile-nav-link ${activeLink === '#contact' ? 'active' : ''}`} onClick={() => handleLinkClick('#contact')}>Contact</Link></li>
+          <li><Link href="/#home" className={`mobile-nav-link ${activeLink === '#home' ? 'active' : ''}`} onClick={() => handleLinkClick('#home')}>Home</Link></li>
+          <li><Link href="/#about" className={`mobile-nav-link ${activeLink === '#about' ? 'active' : ''}`} onClick={() => handleLinkClick('#about')}>About</Link></li>
+          <li><Link href="/#portfolio" className={`mobile-nav-link ${activeLink === '#portfolio' ? 'active' : ''}`} onClick={() => handleLinkClick('#portfolio')}>Portfolio</Link></li>
+          <li><Link href="/#resume" className={`mobile-nav-link ${activeLink === '#resume' ? 'active' : ''}`} onClick={() => handleLinkClick('#resume')}>Resume</Link></li>
+          <li><Link href="/#project" className={`mobile-nav-link ${activeLink === '#project' ? 'active' : ''}`} onClick={() => handleLinkClick('#project')}>Project</Link></li>
+          <li><Link href="/#contact" className={`mobile-nav-link ${activeLink === '#contact' ? 'active' : ''}`} onClick={() => handleLinkClick('#contact')}>Contact</Link></li>
         </ul>
       </div>
     </div>

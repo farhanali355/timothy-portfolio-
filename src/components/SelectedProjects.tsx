@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 
 const filters = ['Website Design', 'Video Animation', 'Logo Design', 'Mobile Apps', 'Brand Identity'];
 
@@ -12,19 +12,23 @@ const projects = [
     title: 'Food Box',
     image: '/tim-project-images/image-1.jpg',
     category: 'Website Design',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.'
+    description: 'A cutting-edge food delivery platform designed for high performance and seamless user experience. Featuring intuitive menu navigation and real-time order tracking with a modern, high-conversion visual aesthetic.'
   },
   {
     id: 2,
     title: 'Basket',
     image: '/tim-project-images/image-2.jpg',
     category: 'Mobile Apps',
-    description: 'A comprehensive mobile solution featuring intuitive navigation and a clean, modern aesthetic for seamless user interaction and high conversion.'
+    description: 'A comprehensive mobile solution featuring intuitive navigation and a clean, modern aesthetic for seamless user interaction and high conversion rates in the e-commerce space.'
   }
 ];
 
 const SelectedProjects = () => {
   const [activeFilter, setActiveFilter] = useState('Website Design');
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+
+  // Close modal handler
+  const closeModal = () => setSelectedProject(null);
 
   return (
     <section id="project" className="selected-projects-section">
@@ -53,7 +57,12 @@ const SelectedProjects = () => {
       {/* 2-Column Project Grid */}
       <div className="projects-grid-2col">
         {projects.map((project) => (
-          <div key={project.id} className="project-card-full">
+          <div 
+            key={project.id} 
+            className="project-card-full"
+            onClick={() => setSelectedProject(project)}
+            style={{ cursor: 'pointer' }}
+          >
             {/* Background Image */}
             <Image
               src={project.image}
@@ -88,6 +97,42 @@ const SelectedProjects = () => {
         <div className="p-dot" style={{ background: '#E2E8F0', borderRadius: '50%' }}></div>
         <div className="p-dot" style={{ background: '#E2E8F0', borderRadius: '50%' }}></div>
       </div>
+
+      {/* ELITE MODAL SYSTEM */}
+      {selectedProject && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-card-glass" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={closeModal}>
+              <X size={28} />
+            </button>
+            
+            <div className="modal-inner-split">
+              <div className="modal-visual-side">
+                <Image 
+                  src={selectedProject.image} 
+                  alt={selectedProject.title}
+                  fill
+                  className="modal-full-img"
+                />
+              </div>
+              
+              <div className="modal-details-side">
+                <span className="modal-category-tag">{selectedProject.category}</span>
+                <h2 className="modal-project-title">{selectedProject.title}</h2>
+                <div className="modal-divider"></div>
+                <p className="modal-project-desc">{selectedProject.description}</p>
+                
+                <div className="modal-footer-btns">
+                  <button className="modal-main-btn" onClick={closeModal}>Close Details</button>
+                  <button className="modal-link-btn">
+                    Visit Project <ArrowRight size={18} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -23,7 +23,6 @@ const Contact = () => {
         color: '#1a1a1a'
       }
     });
-
     // Clear field
     setEmail('');
   };
@@ -38,9 +37,9 @@ const Contact = () => {
           <div className="discuss-mail-icon-box">
             <Mail size={20} className="discuss-mail-icon" />
           </div>
-          <input 
-            type="email" 
-            placeholder="Enter Email Address" 
+          <input
+            type="email"
+            placeholder="Enter Email Address"
             className="discuss-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
