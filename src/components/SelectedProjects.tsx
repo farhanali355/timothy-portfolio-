@@ -11,13 +11,15 @@ const projects = [
     id: 1,
     title: 'Food Box',
     image: '/tim-project-images/image-1.jpg',
-    category: 'Website Design'
+    category: 'Website Design',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.'
   },
   {
     id: 2,
     title: 'Basket',
     image: '/tim-project-images/image-2.jpg',
-    category: 'Mobile Apps'
+    category: 'Mobile Apps',
+    description: 'A comprehensive mobile solution featuring intuitive navigation and a clean, modern aesthetic for seamless user interaction and high conversion.'
   }
 ];
 
@@ -60,17 +62,15 @@ const SelectedProjects = () => {
               className="project-card-img"
             />
 
-            {/* Subtle gradient for text readability */}
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 30%)',
-              zIndex: 2
-            }} />
+            {/* Subtle gradient for text readability (Always visible at bottom) */}
+            <div className="project-card-bottom-shadow" />
 
-            {/* Title at Bottom-Left */}
-            <div className="project-card-title-overlay">
-              {project.title}
+            {/* PREMIUM FLOATING GLASS PANE SYSTEM */}
+            <div className="project-hover-overlay">
+              <div className="overlay-content">
+                <h4 className="overlay-title">{project.title}</h4>
+                <p className="overlay-description">{project.description}</p>
+              </div>
             </div>
 
             {/* Arrow Button at Top-Right */}

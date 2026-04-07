@@ -1,52 +1,30 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
     title: 'Mobile App Development',
-    image: '/tim-portfolio-images/image1.jpg'
+    image: '/tim-portfolio-images/image1.jpg',
+    bgColor: '#E2E6EF' // Light Gray
   },
   {
     title: 'Web Application',
-    image: '/tim-portfolio-images/image2.png'
+    image: '/tim-portfolio-images/image2.png',
+    bgColor: '#C5FF41' // Lime Green
   },
   {
     title: 'API Design & Integration',
-    image: '/tim-portfolio-images/image3.jpg'
+    image: '/tim-portfolio-images/image3.jpg',
+    bgColor: '#1A1A1A' // Dark Black
   }
 ];
 
 const Portfolio = () => {
-  const scrollRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.portfolio-card-custom', {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: scrollRef.current,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          scrub: 1
-        }
-      });
-    }, scrollRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section id="portfolio" className="portfolio-section" ref={scrollRef}>
+    <section id="portfolio" className="portfolio-section">
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
         {/* Split Header: Title on Left, Summary on Right */}
@@ -67,17 +45,29 @@ const Portfolio = () => {
               </div>
 
               {/* Unique 'Folder-Style' Curved Image Box */}
-              <div className="folder-image-box">
-                <Image 
-                  src={project.image} 
-                  alt={project.title} 
-                  fill
-                  className="project-image-full"
-                />
-                
-                {/* Circular Arrow Button (Bottom-Right) */}
+              <div className="folder-wrapper">
+                <div className="folder-layers-group">
+                  {/* Secondary Layers Behind Folder For Stacked Look */}
+                  <div className="folder-sheets-bg"></div>
+                  
+                  <div 
+                    className="folder-image-box" 
+                    style={{ backgroundColor: project.bgColor }}
+                  >
+                    <div className="image-inner-wrap">
+                      <Image 
+                        src={project.image} 
+                        alt={project.title} 
+                        fill
+                        className="project-image-full"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Circular Arrow Button (Positioned in Cutout Space) */}
                 <div className="arrow-circle-btn">
-                  <ArrowUpRight size={28} />
+                  <ArrowUpRight size={24} strokeWidth={2.5} />
                 </div>
               </div>
             </div>

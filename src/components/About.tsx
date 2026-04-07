@@ -15,38 +15,43 @@ const About = () => {
 
       <div className="services-layout">
         {/* Main Grid Wrapper */}
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '30px', maxWidth: '1000px', margin: '0 auto' }}>
+        <div className="about-grid-container">
           
-          {/* Left Column - Aligned to right of space but text is left-aligned inside */}
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '80px', alignItems: 'flex-end', paddingTop: '10px' }}>
-            <div className="service-item" style={{ textAlign: 'left', minWidth: '280px'  }}>
+          {/* Left Column */}
+          <div className="about-col about-left-col">
+            <div className="service-item">
               Custom Web & Mobile App Development
             </div>
-            <div className="service-item" style={{ textAlign: 'left', minWidth: '280px', marginTop: '15px' }}>
+            <div className="service-item service-item-align-secure">
               Secure & Scalable Database Management
             </div>
           </div>
 
-          {/* Center Column - Single Combined Graphic */}
-          <div style={{ width: '80px', display: 'flex', justifyContent: 'center'}}>
-            <div className="dot-icon-wrap" style={{ height: '350px', display: 'flex', alignItems: 'center',marginTop: '-60px' }}>
-              <Image src="/tim-about-images/dot.png" alt="dots" width={60} height={200} style={{ objectFit: 'contain' }} />
+          {/* Center Column - Responsive Dot Image */}
+          <div className="about-col about-center-col">
+            <div className="dot-image-wrapper">
+              <Image 
+                src="/tim-about-images/dot.png" 
+                alt="dots" 
+                fill 
+                className="dot-main-img"
+              />
             </div>
           </div>
 
-          {/* Right Column - Naturally left aligned */}
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '95px', textAlign: 'left', paddingTop: '20px' }}>
+          {/* Right Column */}
+          <div className="about-col about-right-col">
             <div className="service-item">
               API Design & Integration
             </div>
-            <div className="service-item" style={{ marginTop: '25px' }}>
+            <div className="service-item service-item-align-bottom">
               Modern UI/UX Design
             </div>
           </div>
         </div>
 
         {/* Bottom Text */}
-        <div className="service-bottom" style={{ textAlign: 'center', margin: '40px auto 0', marginTop: '-25px' }}>
+        <div className="service-bottom">
           Deployment, Maintenance & <br /> Post-Launch Support
         </div>
 
